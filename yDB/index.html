@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script src="./yDB.js"></script>
+<script>
+  yDB.use('FIRST_DB');
+  yDB.use('SECOND_DB');
+  yDB.showDbs();
+  yDB.dropDatabase();
+  yDB.showDbs();
+  yDB.use('FIRST_DB');
+  yDB.insert('COLLE1', { a: 1, b: 2, c: 3 });
+  yDB.insert('COLLE1', { d: 5, b: 2, c: 3 });
+  console.log(yDB.find('COLLE1', {b: 2}))
+  // console.log(yDB.remove('COLLE1', {a: 1}))
+  yDB.update('COLLE1', {a: 1}, {s: 6})
+  // yDB.drop('COLLE1')
+  console.log(yDB);
+</script>
+</html>
